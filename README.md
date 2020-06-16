@@ -9,10 +9,10 @@ As an auxiliary model, SynthSWIR attempts to approximate the SWIR-1 and SWIR-2 b
 
 ## Contents
   - [Dependencies](#dependencies)
-  - [Quick Start](#Quick Start)
-  - [Model Architecture](#Model Architecture)
-  - [Pre-Trained Model](#Pre-Trained Model)
-  - [Training On Your Own Data](#Training On Your Own Data)
+  - [Quick Start](#quick-start)
+  - [Model Architecture](#model-architecture)
+  - [Pre-Trained Model](#pre-trained-model)
+  - [Training On Your Own Data](#training-on-your-own-data)
 
 ## Dependencies
 *Tested on Python 3.8.2*
@@ -36,14 +36,14 @@ From the command line:
   python apply_model_planet.py --file_name 'your_planetscope_img.tif'
   ```
 
-The output image from the model will be in the same directory as the input image with the suffix "_predicted". 
+The output GeoTIF from the model will be in the same directory as the input image with the suffix *"_predicted"*. 
 
 ## Model Architecture
 SynthSWIR employs a relatively simply methodology and attempts to learn the relationship between RGB+NIR data and the SWIR-1 and SWIR-2 band data on a pixel-by-pixel basis. The model itself consists of 4 layers as shown below.
 
 **Add model schematic here**
 
-Model performance and reduction in loss as training occurs can be seen in the [model_info](model_info) subdirectory. Other model architectures that were tested and their associated error metrics can be seen there as well.
+Model performance and reduction in loss as training occurs can be seen in the [model_info](model_info) subdirectory. Other model architectures that were tested and their associated error metrics are provided there as well.
 
 ## Pre-Trained Model
 A pre-trained model and checkpoint have been created using primarily coastal river data. The training data used for this is available in the [training_data](training_data) subdirectory. These pixel values provided in the `.csv` file were extracted from a set of Landsat geoTIFs (available **add link to box folder of geotifs**).
