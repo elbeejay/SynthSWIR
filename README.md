@@ -1,7 +1,9 @@
 # SynthSWIR
 Estimating SWIR-1 and SWIR-2 bands from the RGB and NIR bands using a regression model trained pixel by pixel.
 
-**Add image of new workflow and comparison of new output against old**
+<p align="center">
+<img src="https://github.com/elbeejay/SynthSWIR/blob/master/model_info/WorkFlow.png" alt="SynthSWIR Workflow" width="750"/>
+</p>
 
 SynthSWIR is an auxiliary Tensorflow 2 model designed to pre-process [PlanetScope](https://www.planet.com/) and other high resolution satellite data without shortwave infrared (SWIR) so that they may be used with the deep convolutional neural networks [DeepWaterMap](https://github.com/isikdogan/deepwatermap) and [DeepRiver](https://github.com/isikdogan/deepriver). With SynthSWIR, these powerful neural networks can be extended to higher resolution data that lacks the Landsat SWIR-1 and SWIR-2 bands.
 
@@ -41,9 +43,7 @@ The output GeoTIF from the model will be in the same directory as the input imag
 ## Model Architecture
 SynthSWIR employs a relatively simply methodology and attempts to learn the relationship between RGB+NIR data and the SWIR-1 and SWIR-2 band data on a pixel-by-pixel basis. The model itself consists of 4 layers as shown below.
 
-<p align="center">
-<img src="https://github.com/elbeejay/SynthSWIR/blob/master/model_info/WorkFlow.png" alt="SynthSWIR Workflow" width="300"/>
-</p>
+**Add image of model architecture**
 
 Model performance and reduction in loss as training occurs can be seen in the [model_info](model_info) subdirectory. Other model architectures that were tested and their associated error metrics are provided there as well.
 
