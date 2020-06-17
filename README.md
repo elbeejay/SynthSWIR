@@ -43,10 +43,14 @@ From the command line:
 The output GeoTIF from the model will be in the same directory as the input image with the suffix *"_predicted"*. 
 
 ## Model Architecture
-SynthSWIR employs a relatively simply methodology and attempts to learn the relationship between RGB+NIR data and the SWIR-1 and SWIR-2 band data on a pixel-by-pixel basis. The model itself consists of 4 layers as shown below.
+SynthSWIR employs a relatively simply methodology and attempts to learn the relationship between RGB+NIR data and the SWIR-1 and SWIR-2 band data on a pixel-by-pixel basis. The model consists of 4 hidden layers as shown in the model schematic below.
+<br/><br/>
 
-**Add image of model architecture**
+<p align="center">
+<img src="https://github.com/elbeejay/SynthSWIR/blob/master/model_info/ModelSchematic.png" alt="Model Schematic" width="750"/>
+</p>
 
+<br/><br/>
 Model performance and reduction in loss as training occurs can be seen in the [model_info](model_info) subdirectory. Other model architectures that were tested and their associated error metrics are provided there as well.
 
 ## Pre-Trained Model
