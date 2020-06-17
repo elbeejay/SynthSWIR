@@ -1,10 +1,12 @@
 # SynthSWIR
 Estimating SWIR-1 and SWIR-2 bands from the RGB and NIR bands using a regression model trained pixel by pixel.
+<br/><br/>
 
 <p align="center">
 <img src="https://github.com/elbeejay/SynthSWIR/blob/master/model_info/WorkFlow.png" alt="SynthSWIR Workflow" width="750"/>
 </p>
 
+<br/><br/>
 SynthSWIR is an auxiliary Tensorflow 2 model designed to pre-process [PlanetScope](https://www.planet.com/) and other high resolution satellite data without shortwave infrared (SWIR) so that they may be used with the deep convolutional neural networks [DeepWaterMap](https://github.com/isikdogan/deepwatermap) and [DeepRiver](https://github.com/isikdogan/deepriver). With SynthSWIR, these powerful neural networks can be extended to higher resolution data that lacks the Landsat SWIR-1 and SWIR-2 bands.
 
 As an auxiliary model, SynthSWIR attempts to approximate the SWIR-1 and SWIR-2 bands present in LANDSAT data. **Do not use this model if you are interested in high fidelity predictions of SWIR-1 and SWIR-2 bands**. This model was designed to help augment RGB+NIR satellite data so that it can be used with the DeepWaterMap/DeepRiver neural networks. As such, the synthetic SWIR data that is predicted by SynthSWIR is not meant to be perfect, instead the robust design and training (band mixing, random noise) of the DeepWaterMap/DeepRiver models is relied upon to overcome errors in the synthetic SWIR data. Due to their large training datasets (1 TB+) and robust traning methods, it is computationally costly to attempt to re-train DeepWaterMap/DeepRiver with fewer input bands. The advantage of using SynthSWIR, is that the pre-trained DeepWaterMap/DeepRiver models can be applied directly to 4-band (RGB+NIR) data without re-training.
