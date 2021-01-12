@@ -40,7 +40,7 @@ From the command line:
   python apply_model_planet.py --file_name 'your_planetscope_img.tif'
   ```
 
-The output GeoTIF from the model will be in the same directory as the input image with the suffix *"_predicted"*. 
+The output GeoTIF from the model will be in the same directory as the input image with the suffix *"_predicted"*.
 
 ## Model Architecture
 SynthSWIR employs a relatively simply methodology and attempts to learn the relationship between RGB+NIR data and the SWIR-1 and SWIR-2 band data on a pixel-by-pixel basis. The model consists of 4 hidden layers as shown in the model schematic below.
@@ -59,15 +59,15 @@ A pre-trained model and checkpoint have been created using primarily coastal riv
 ## Training On Your Own Data
 To train the model on a different set of Landsat data (highly recommended if the intended use is not for coastal river systems), then do the following.
 
-  1. Collect your Landsat GeoTIFs into a single folder 
+  1. Collect your Landsat GeoTIFs into a single folder
 
-  2. Run the function `gen_data.create_training(file_dir)` contained in the `gen_data.py` script to create a new `training_data.csv` file with a selection of pixels from your training GeoTIFs. The number of pixels sampled from each GeoTIF in the training data can be specified using the `num_pts` argument. 
+  2. Run the function `gen_data.create_training(file_dir)` contained in the `gen_data.py` script to create a new `training_data.csv` file with a selection of pixels from your training GeoTIFs. The number of pixels sampled from each GeoTIF in the training data can be specified using the `num_pts` argument.
 
   3. Run `trainer.py` to train the model on your newly generated `training_data.csv`. Check the script and your working directory to ensure that the `training_data.csv` file being pointed to is the new one you just generated.
 
   4. Now you have a newly trained model and a checkpoint should have been saved in the `/checkpoints` directory. When SynthSWIR is next applied via `apply_model.py` or `apply_model_planet.py` it will be using the model trained on your training dataset!
 
 ## Misc/Other Scripts
-The relationship between the SWIR bands and the RGB+NIR bands can be seen using `visualizing_data.py`. This script uses the seaborn package to produce pair-wise plots showing the relationship between each RGB+NIR band and the SWIR-1 and SWIR-2 bands. 
+The relationship between the SWIR bands and the RGB+NIR bands can be seen using `visualizing_data.py`. This script uses the seaborn package to produce pair-wise plots showing the relationship between each RGB+NIR band and the SWIR-1 and SWIR-2 bands.
 
-To see how well the model does in your area of interest, the `test_model.py` script may be helpful. The function `test_model.predict_comparison(file_name)` takes a Landsat GeoTIF as input, applies the SynthSWIR model, and creates scatter plots of the predcted SWIR values against the true Landsat SWIR values.
+To see how well the model does in your area of interest, the `test_model.py` script may be helpful. The function `test_model.predict_comparison(file_name)` takes a Landsat GeoTIF as input, applies the SynthSWIR model, and creates scatter plots of the predicted SWIR values against the true Landsat SWIR values.
